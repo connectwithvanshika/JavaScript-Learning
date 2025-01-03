@@ -1,0 +1,25 @@
+.mediv{
+    height: 150px;
+    width: 900px;
+    background-color:plum;
+    border:2px solid black;
+}
+
+.mediv1{
+    height: 150px;
+    width: 900px;
+    background-color:powderblue;
+    border:2px solid black;
+}
+.mediv2{
+    height: 150px;
+    width: 900px;
+    background-color:palevioletred;
+    border:2px solid black;
+}
+.mediv3{
+    height: 150px;
+    width: 900px;
+    background-color:palegreen;
+    border:2px solid black;
+}
