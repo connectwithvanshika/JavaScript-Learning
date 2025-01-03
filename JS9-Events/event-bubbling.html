@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Bubbling</title>
+    <style>
+      .child {
+        background-color: palevioletred;
+        border: 2px solid black;
+        padding: 14px;
+        margin: 14px;
+        cursor: pointer;
+      }
+      .child-container {
+        background-color: palegreen;
+        border: 2px solid black;
+        padding: 14px;
+        margin: 14px;
+        cursor: pointer;
+      }
+      .container {
+        background-color: purple;
+        border: 2px solid black;
+        padding: 14px;
+        margin: 14px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Event Bubbling</h1>
+    <p>
+      Event bubbling is a type of event propagation in the HTML DOM. When an
+      event occurs in an element inside another element, the event first
+      triggers on the innermost element, and then it bubbles up to the outer
+      elements.
+    </p>
+
+    <div class="container">
+      <section class="child-container">
+        <div class="child">I am a Child</div>
+      </section>
+    </div>
+
+    <script>
+      document.querySelector(".child").addEventListener("contextmenu", (e) => {
+        e.stopPropagation();
+        alert("Child was Clicked");
+      });
+
+      //   In JavaScript, the e.stopPropagation() method is used to stop the propagation of an event in the DOM, meaning it prevents the event from continuing to propagate (or "bubble") up or down the DOM tree.
+
+      // It is particularly useful when you:
+
+      // Want to stop the event from triggering additional event handlers on parent elements.
+      // Want to prevent unwanted side effects (e.g., multiple clicks triggering different actions).
+
+      document
+        .querySelector(".child-container")
+        .addEventListener("contextmenu", (e) => {
+          e.stopPropagation();
+          alert("Child-container was Clicked");
+        });
+
+      document
+        .querySelector(".container")
+        .addEventListener("contextmenu", (e) => {
+          e.stopPropagation();
+          alert("Container was Clicked");
+        });
+
+      let a = setInterval(() => {
+        document.querySelector(".child-container").style.background = "orange";
+      }, 2000);
+      console.log(a);
+
+      // This function is using setInterval to repeatedly execute a block of code at a specified time interval.
+
+      // clear interval is used to cancel set interval
+
+      let b = setTimeout(() => {
+        document.querySelector(".child-container").style.background = "orange";
+      }, 2000);
+      console.log(b);
+
+      // In JavaScript, the setTimeout() function is used to execute a piece of code or call a function after a specified delay, in milliseconds. It's commonly used for introducing delays or timing events.
+
+      // For setTimeout(), you can cancel or clear the timeout using the clearTimeout() function.
+    </script>
+  </body>
+</html>
